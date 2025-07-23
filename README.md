@@ -1,6 +1,5 @@
 ## Disclamer
-This project is modified version of flutter_sms_inbox for filter by date.
-You can check the original package here. https://github.com/jgithaiga/flutter_sms_inbox
+This project is modified version of [Flutter SMS Inbox](https://github.com/jgithaiga/flutter_sms_inbox) for filter by date.
 
 # Flutter SMS Inbox with Filter
 
@@ -39,6 +38,8 @@ The method `querySms` from the `SmsQuery` class returns a list of sms depending 
 ```
 await query.querySms(
     kinds: [SmsQueryKind.inbox, SmsQueryKind.sent],
+    startTime: DateTime.now().subtract(Duration(days: 1)),
+    endTime: DateTime.now(),
 );
 ```
 You can also query all the sms messages sent and received from a specific contact:
