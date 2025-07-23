@@ -1,6 +1,6 @@
-name: flutter_sms_inbox
-description: Flutter SMS Inbox Plugin (Android only). This library allows users to easily query inbox messages.
-homepage: https://github.com/jgithaiga/flutter_sms_inbox
+name: flutter_sms_inbox_with_filter
+description: Flutter SMS Inbox Plugin (Android only), modified by PORPO5 for filter by date. This library allows users to easily query inbox messages.
+homepage: https://github.com/PORPO5/flutter_sms_inbox_with_filter
 version: 1.0.4
 
 environment:
