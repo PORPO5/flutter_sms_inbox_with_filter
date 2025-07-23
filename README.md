@@ -1,7 +1,7 @@
-# Flutter SMS Inbox
+# Flutter SMS Inbox with Filter
 
-[![pub package](https://img.shields.io/pub/v/flutter_sms_inbox.svg)](https://pub.dev/packages/flutter_sms_inbox)
-[![pub points](https://img.shields.io/pub/points/flutter_sms_inbox?color=2E8B57&label=pub%20points)](https://pub.dev/packages/flutter_sms_inbox/score)
+
+## This package is modified version of flutter_sms_inbox for filter by date.
 
 Flutter android SMS inbox library based on [Flutter SMS](https://github.com/babariviere/flutter_sms).
 
