@@ -23,6 +23,8 @@ class SmsQuery {
     int? count,
     String? address,
     int? threadId,
+    DateTime? startTime,
+    DateTime? endTime,
     SmsQueryKind kind = SmsQueryKind.inbox,
   }) async {
     Map arguments = {};
@@ -37,6 +39,13 @@ class SmsQuery {
     }
     if (threadId != null && threadId >= 0) {
       arguments["thread_id"] = threadId;
+    }
+
+    if (startTime != null) {
+      arguments["startTime"] = startTime.millisecondsSinceEpoch;
+    }
+    if (endTime != null) {
+      arguments["endTime"] = endTime.millisecondsSinceEpoch;
     }
 
     String function;

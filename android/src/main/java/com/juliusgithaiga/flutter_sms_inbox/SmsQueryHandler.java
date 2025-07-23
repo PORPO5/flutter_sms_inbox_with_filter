@@ -16,9 +16,11 @@ public class SmsQueryHandler {
     private final int threadId;
     private int start;
     private int count;
+    private final Long startTime;
+    private final Long endTime;
 
     SmsQueryHandler(Context applicationContext, MethodChannel.Result result, SmsQueryRequest request,
-                    int start, int count, int threadId, String address) {
+            int start, int count, int threadId, String address, Long startTime, Long endTime) {
         this.applicationContext = applicationContext;
         this.result = result;
         this.request = request;
@@ -26,11 +28,33 @@ public class SmsQueryHandler {
         this.address = address;
         this.start = start;
         this.count = count;
+        this.startTime = startTime;
+        this.endTime = endTime;
     }
 
     void handle() {
+        String selection = null;
+        String[] selectionArgs = null;
+
+        if (startTime != null && endTime != null) {
+            selection = "date >= ? AND date <= ?";
+            selectionArgs = new String[]{
+                String.valueOf(startTime),
+                String.valueOf(endTime)
+            };
+        } else if (startTime != null) {
+            selection = "date >= ?";
+            selectionArgs = new String[]{ String.valueOf(startTime) };
+        } else if (endTime != null) {
+            selection = "date <= ?";
+            selectionArgs = new String[]{ String.valueOf(endTime) };
+        }
+        
         ArrayList<JSONObject> list = new ArrayList<>();
-        Cursor cursor = this.applicationContext.getContentResolver().query(this.request.toUri(), null, null, null, null);
+        Cursor cursor = this.applicationContext.getContentResolver().query(this.request.toUri(), null,
+            selection,
+            selectionArgs,
+            "date DESC");
         if (cursor == null) {
             result.error("no_cursor", "flutter_sms_inbox plugin requires cursor to resolve content", null);
             return;

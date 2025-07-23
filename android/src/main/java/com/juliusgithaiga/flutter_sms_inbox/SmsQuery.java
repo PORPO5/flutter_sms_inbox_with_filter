@@ -20,6 +20,9 @@ public class SmsQuery implements MethodChannel.MethodCallHandler {
         int threadId = -1;
         String address = null;
         SmsQueryRequest request;
+        Long startTime = null;
+        Long endTime = null;
+
         switch (call.method) {
             case "getInbox":
                 request = SmsQueryRequest.Inbox;
@@ -35,6 +38,7 @@ public class SmsQuery implements MethodChannel.MethodCallHandler {
                 return;
         }
 
+
         if (call.hasArgument("start")) {
             start = call.argument("start");
         }
@@ -47,9 +51,15 @@ public class SmsQuery implements MethodChannel.MethodCallHandler {
         if (call.hasArgument("address")) {
             address = call.argument("address");
         }
+        if (call.hasArgument("startTime")) {
+            startTime = ((Number) call.argument("startTime")).longValue();
+        }
+        if (call.hasArgument("endTime")) {
+            endTime = ((Number) call.argument("endTime")).longValue();
+        }
 
         SmsQueryHandler smsQueryHandler = new SmsQueryHandler(
-                this.applicationContext, result, request, start, count, threadId, address);
+                this.applicationContext, result, request, start, count, threadId, address, startTime, endTime);
         smsQueryHandler.handle();
     }
 }
