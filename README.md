@@ -1,7 +1,8 @@
+## Disclamer
+This project is modified version of flutter_sms_inbox for filter by date.
+You can check the original package here. https://github.com/jgithaiga/flutter_sms_inbox
+
 # Flutter SMS Inbox with Filter
-
-
-## This package is modified version of flutter_sms_inbox for filter by date.
 
 Flutter android SMS inbox library based on [Flutter SMS](https://github.com/babariviere/flutter_sms).
 
