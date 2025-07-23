@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_sms_inbox/flutter_sms_inbox.dart';
+import 'package:flutter_sms_inbox_with_filter/flutter_sms_inbox.dart';
 
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';

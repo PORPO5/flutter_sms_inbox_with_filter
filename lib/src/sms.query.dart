@@ -77,6 +77,8 @@ class SmsQuery {
     int? count,
     String? address,
     int? threadId,
+    DateTime? startTime,
+    DateTime? endTime,
     List<SmsQueryKind> kinds = const [SmsQueryKind.inbox],
     bool sort = false,
   }) async {
@@ -87,6 +89,8 @@ class SmsQuery {
         count: count,
         address: address,
         threadId: threadId,
+        startTime: startTime,
+        endTime: endTime,
         kind: kind,
       ));
     }
